@@ -190,6 +190,8 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.1)
+    view_component (2.5.1)
+      activesupport (>= 5.0.0, < 7.0)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -228,6 +230,7 @@ DEPENDENCIES
   standard (~> 0.2.4)
   turbolinks (~> 5)
   tzinfo-data
+  view_component (~> 2.5)
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 5.1)

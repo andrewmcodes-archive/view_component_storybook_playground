@@ -42,3 +42,15 @@ rails new view_component_storybook_playground --skip-sprockets --skip-spring --w
 ```
 
 I also upgraded Webpacker to v5.1.1 in the [Gemfile](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/Gemfile#L13) and [package.json](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/package.json#L9)
+
+Add ViewComponent
+
+```sh
+bundle add view_component
+```
+
+In [config/application.rb](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/config/application.rb#L17), add:
+
+```ruby
+require "view_component/engine"
+```
