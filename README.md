@@ -54,3 +54,74 @@ In [config/application.rb](https://github.com/andrewmcodes/view_component_storyb
 ```ruby
 require "view_component/engine"
 ```
+
+add [view_component_storybook](https://github.com/jonspalmer/view_component_storybook)
+
+```sh
+bundle add view_component_storybook --group "development"
+```
+
+In [config/application.rb](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/config/application.rb#L18), add:
+
+```ruby
+require "view_component_storybook/engine" if ENV["RAILS_ENV"].inquiry.development?
+```
+
+Add `**/*.stories.json` to [.gitignore](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/.gitignore#L37)
+
+```sh
+echo '**/*.stories.json' >> .gitignore
+```
+
+Add Storybook server as a dev dependency.
+
+```sh
+yarn add @storybook/server @storybook/addon-knobs --dev
+```
+
+Add an NPM script to your package.json in order to start the storybook later in this guide
+
+```json
+{
+ "scripts": {
+   "storybook": "start-storybook"
+ }
+}
+```
+
+Create the [.storybook](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/.storybook) directory
+
+```sh
+mkdir .storybook
+```
+
+Create the [.storybook/main.js](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/.storybook/main.js) file to configure Storybook to find the json stories the gem creates. Also configure the knobs addon:
+
+```sh
+touch .storybook/main.js
+```
+
+```javascript
+module.exports = {
+ stories: ['../test/components/**/*.stories.json'],
+ addons: [
+   '@storybook/addon-knobs',
+ ],
+};
+```
+
+Create the [.storybook/preview.js](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/.storybook/preview.js) file to configure Storybook with the Rails application url to call for the html content of the stories
+
+```sh
+touch .storybook/preview.js
+```
+
+```javascript
+import { addParameters } from '@storybook/server';
+
+addParameters({
+ server: {
+   url: `http://localhost:3000/rails/stories`,
+ },
+});
+```

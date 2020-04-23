@@ -2,6 +2,9 @@
   "name": "view_component_storybook_playground",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "storybook": "start-storybook"
+  },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -11,6 +14,8 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/server": "^6.0.0-alpha.5",
     "webpack-dev-server": "^3.10.3"
   }
 }

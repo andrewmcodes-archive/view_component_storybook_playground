@@ -49,3 +49,5 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "view_component", "~> 2.5"
+
+gem "view_component_storybook", "~> 0.1.0", :group => :development
