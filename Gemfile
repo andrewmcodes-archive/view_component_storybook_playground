@@ -10,7 +10,7 @@ gem "sqlite3", "~> 1.4"
 # Use Puma as the app server
 gem "puma", "~> 4.1"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem "webpacker", "~> 5.1"
+gem "webpacker", "~> 5.1.1"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -50,4 +50,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "view_component", "~> 2.5"
 
-gem "view_component_storybook", "~> 0.1.0", :group => :development
+gem "view_component_storybook", "~> 0.1.0", group: :development

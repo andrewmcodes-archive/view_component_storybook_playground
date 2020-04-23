@@ -15,7 +15,8 @@ require "action_cable/engine"
 # require "sprockets/railtie"
 require "rails/test_unit/railtie"
 require "view_component/engine"
-require "view_component_storybook/engine" if ENV["RAILS_ENV"].inquiry.development?
+require "view_component/storybook/engine" unless Rails.env.production?
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

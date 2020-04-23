@@ -13,3 +13,4 @@ windows:
       panes:
         - bundle exec rails s
         - bundle exec ./bin/webpack-dev-server
+  - storybook: nvm use && yarn storybook

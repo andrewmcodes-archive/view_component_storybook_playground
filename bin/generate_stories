@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rake view_component_storybook:write_stories_json

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -p 9011"
   },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
@@ -14,8 +14,11 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-knobs": "^5.3.18",
-    "@storybook/server": "^6.0.0-alpha.5",
+    "@storybook/addon-a11y": "^v6.0.0-alpha.36",
+    "@storybook/addon-actions": "^v6.0.0-alpha.36",
+    "@storybook/addon-docs": "^v6.0.0-alpha.36",
+    "@storybook/addon-knobs": "^v6.0.0-alpha.36",
+    "@storybook/server": "^v6.0.0-alpha.36",
     "webpack-dev-server": "^3.10.3"
   }
 }

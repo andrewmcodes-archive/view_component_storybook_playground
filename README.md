@@ -64,7 +64,7 @@ bundle add view_component_storybook --group "development"
 In [config/application.rb](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/config/application.rb#L18), add:
 
 ```ruby
-require "view_component_storybook/engine" if ENV["RAILS_ENV"].inquiry.development?
+require "view_component/storybook/engine" if Rails.env.development?
 ```
 
 Add `**/*.stories.json` to [.gitignore](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/.gitignore#L37)
@@ -103,11 +103,9 @@ touch .storybook/main.js
 
 ```javascript
 module.exports = {
- stories: ['../test/components/**/*.stories.json'],
- addons: [
-   '@storybook/addon-knobs',
- ],
-};
+  stories: ['../test/components/**/*.stories.json'],
+  addons: ['@storybook/addon-knobs']
+}
 ```
 
 Create the [.storybook/preview.js](https://github.com/andrewmcodes/view_component_storybook_playground/blob/master/.storybook/preview.js) file to configure Storybook with the Rails application url to call for the html content of the stories
@@ -117,11 +115,27 @@ touch .storybook/preview.js
 ```
 
 ```javascript
-import { addParameters } from '@storybook/server';
+import { addParameters } from '@storybook/server'
 
 addParameters({
- server: {
-   url: `http://localhost:3000/rails/stories`,
- },
-});
+  server: {
+    url: `http://localhost:3000/rails/stories`
+  }
+})
+```
+
+Let's create our first component to test this out.
+
+```sh
+bin/rails generate component Button text
+```
+
+Add to `development.rb`
+
+```ruby
+config.action_dispatch.default_headers.clear
+config.action_dispatch.default_headers = {
+  "Access-Control-Allow-Origin" => "*",
+  "Access-Control-Request-Method" => %w[GET].join(",")
+}
 ```

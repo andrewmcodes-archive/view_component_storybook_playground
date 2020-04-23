@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Storybook Preview</title>
+    <%#= stylesheet_pack_tag 'application' %>
+    <%#= javascript_pack_tag 'application' %>
+    <script src="http://localhost:3035<%= Webpacker.manifest.lookup("application.js") %>"></script>
+    <link rel="stylesheet" href="http://localhost:3035<%= Webpacker.manifest.lookup("application.css") %>">
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
