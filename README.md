@@ -139,3 +139,5 @@ config.action_dispatch.default_headers = {
   "Access-Control-Request-Method" => %w[GET].join(",")
 }
 ```
+
+TODO: finish
